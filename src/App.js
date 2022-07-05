@@ -6,17 +6,26 @@ import TodoList from './components/TodoList/TodoList';
 import './App.css';
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
+  const getTodolist = () => {
+    const localVar = JSON.parse(localStorage.getItem('Todo'));
+    if (!localVar) {
+      return [];
+    }
+    return localVar;
+  };
+  const [todoList, setTodoList] = useState(getTodolist());
+
   // useEffect(() => {
-  //   const list = JSON.toString(localStorage.getItem('Todo'));
-  //   console.log(list);
-  //   if (list) {
-  //     setTodoList({ ...list });
+  //   const localVar = JSON.parse(localStorage.getItem('Todo'));
+  //   if (localVar) {
+  //     setTodoList(localVar);
   //   }
+  //   console.log(todoList);
   // }, []);
   useEffect(() => {
     // Set to the local storage
-    localStorage.setItem('Todo', JSON.stringify(todoList));
+    const locaVar = JSON.stringify(todoList);
+    localStorage.setItem('Todo', locaVar);
   }, [todoList]);
 
   const onChange = (event, key) => {
