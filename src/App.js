@@ -14,14 +14,6 @@ function App() {
     return localVar;
   };
   const [todoList, setTodoList] = useState(getTodolist());
-
-  // useEffect(() => {
-  //   const localVar = JSON.parse(localStorage.getItem('Todo'));
-  //   if (localVar) {
-  //     setTodoList(localVar);
-  //   }
-  //   console.log(todoList);
-  // }, []);
   useEffect(() => {
     // Set to the local storage
     const locaVar = JSON.stringify(todoList);
@@ -32,8 +24,8 @@ function App() {
     todoList[key - 1].completed = !todoList[key - 1].completed;
     setTodoList([...todoList]);
   };
-  const click = (event, key) => {
-    console.log(event, key);
+  const click = () => {
+    // console.log(event, key);
   };
 
   const submitList = (e) => {
