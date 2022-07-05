@@ -4,3 +4,7 @@ li {
   align-items: center;
   justify-content: center;
 }
+
+.completed {
+  text-decoration: line-through;
+}

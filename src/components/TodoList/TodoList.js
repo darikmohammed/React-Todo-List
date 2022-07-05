@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TodoItem from './TodoItem/TodoItem';
 
-function TodoList() {
-  const [todoList, setTodoList] = useState([
-    { id: 1, describition: 'list One', completed: true },
-  ]);
-  // setTodoList([{ id: 1, describition: 'list One' }]);
-  useEffect(() => {
-    // Set to the local storage
-  });
-  // }, [todoList]);
-
-  const onChange = (event, key) => {
-    todoList[key - 1].completed = !todoList[key - 1].completed;
-    setTodoList([...todoList]);
-  };
-  const click = (event, key) => {
-    console.log(event, key);
-  };
+function TodoList({ todoList, onChange, click }) {
   return (
     <section id="todo-lists">
       <ul>
@@ -39,3 +24,8 @@ function TodoList() {
 }
 
 export default TodoList;
+TodoList.propTypes = {
+  todoList: PropTypes.isRequired,
+  onChange: PropTypes.func.isRequired,
+  click: PropTypes.func.isRequired,
+};

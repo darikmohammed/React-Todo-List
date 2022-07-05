@@ -1,13 +1,19 @@
 import React from 'react';
-import SearchIcon from '@mui/icons-material/Search';
+import PropTypes from 'prop-types';
+import AddIcon from '@mui/icons-material/Add';
 
-function InputTodo() {
+function InputTodo({ submitList }) {
   return (
     <section id="todo-input">
-      <form action="#" id="todo-input-form">
-        <input type="text" className="input-list" placeholder="Add Todo List" />
+      <form action="#" id="todo-input-form" onSubmit={submitList}>
+        <input
+          type="text"
+          className="input-list"
+          name="todo"
+          placeholder="Add Todo List"
+        />
         <button type="submit" className="btn">
-          <SearchIcon />
+          <AddIcon />
         </button>
       </form>
     </section>
@@ -15,3 +21,7 @@ function InputTodo() {
 }
 
 export default InputTodo;
+
+InputTodo.propTypes = {
+  submitList: PropTypes.func.isRequired,
+};

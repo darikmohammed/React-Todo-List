@@ -14,7 +14,9 @@ function TodoItem({
         onChange={onChange}
         checked={checked}
       />
-      <div className="todo-description">{listDesc}</div>
+      <div className={`todo-description ${checked ? 'completed' : ''}`}>
+        {listDesc}
+      </div>
       <button type="button" className="del-icon" onClick={click}>
         <DeleteIcon />
       </button>
